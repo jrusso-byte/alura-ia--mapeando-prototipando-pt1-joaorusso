@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>russodrives rotina</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js via CDN para os objetos 3D no fundo -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Canvas onde os objetos 3D voam ao fundo -->
+  <canvas id="bg-canvas"></canvas>
+
+  <div class="app-container">
+    <header class="header">
+      <h1 class="title">russodrives rotina</h1>
+      <p class="subtitle">Painel Integrado de Gestão Pessoal & Atividades</p>
+    </header>
+
+    <main class="cards-grid">
+      <!-- Card 1: Escola -->
+      <div class="card" onclick="openModal('modal-escola')">
+        <div class="card-icon">📚</div>
+        <h2>Escola</h2>
+        <p>Aulas, estudos e compromissos acadêmicos.</p>
+        <button class="btn-card">Ver Detalhes</button>
+      </div>
+
+      <!-- Card 2: Trabalho na Frutaria -->
+      <div class="card" onclick="openModal('modal-frutaria')">
+        <div class="card-icon">🍎</div>
+        <h2>Trabalho na Frutaria</h2>
+        <p>Atendimento, reposição, caixa e estoque.</p>
+        <button class="btn-card">Ver Detalhes</button>
+      </div>
+
+      <!-- Card 3: Lazer / Meu Carro -->
+      <div class="card" onclick="openModal('modal-carro')">
+        <div class="card-icon">🚗</div>
+        <h2>Lazer & Carro</h2>
+        <p>Manutenção, rolês, encontros e cuidados com o carro.</p>
+        <button class="btn-card">Ver Detalhes</button>
+      </div>
+
+      <!-- Card 4: Hobby -->
+      <div class="card" onclick="openModal('modal-hobby')">
+        <div class="card-icon">🎮</div>
+        <h2>Hobby</h2>
+        <p>Projetos pessoais, games, criação e entretenimento.</p>
+        <button class="btn-card">Ver Detalhes</button>
+      </div>
+
+      <!-- Card 5: Saúde -->
+      <div class="card" onclick="openModal('modal-saude')">
+        <div class="card-icon">💪</div>
+        <h2>Saúde</h2>
+        <p>Treinos, alimentação, hidratação e descanso.</p>
+        <button class="btn-card">Ver Detalhes</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAIS DE INFORMAÇÕES -->
+
+  <!-- Modal Escola -->
+  <div id="modal-escola" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-escola')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-escola')">&times;</span>
+      <div class="modal-header">
+        <span>📚</span>
+        <h2>Rotina: Escola</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Horários & Tarefas</h3>
+        <ul>
+          <li><strong>07:30 - 12:00:</strong> Presença em aula e anotações.</li>
+          <li><strong>Revisão diária:</strong> 45 minutos após o trabalho.</li>
+          <li><strong>Trabalhos:</strong> Entregas e leituras programadas.</li>
+        </ul>
+        <div class="status-badge">Foco: Organização & Consistência</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Frutaria -->
+  <div id="modal-frutaria" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-frutaria')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-frutaria')">&times;</span>
+      <div class="modal-header">
+        <span>🍎</span>
+        <h2>Rotina: Trabalho na Frutaria</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Principais Atividades</h3>
+        <ul>
+          <li><strong>Turno:</strong> Recebimento de mercadorias e conferência.</li>
+          <li><strong>Organização:</strong> Reposição de bancadas e limpeza.</li>
+          <li><strong>Atendimento:</strong> Operação de caixa e suporte aos clientes.</li>
+        </ul>
+        <div class="status-badge">Foco: Produtividade & Agilidade</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Carro -->
+  <div id="modal-carro" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-carro')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-carro')">&times;</span>
+      <div class="modal-header">
+        <span>🚗</span>
+        <h2>Rotina: Lazer & Meu Carro</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Manutenção & Lazer</h3>
+        <ul>
+          <li><strong>Fim de semana:</strong> Lavagem detalhada e polimento.</li>
+          <li><strong>Checagens:</strong> Óleo, água, calibração dos pneus semanalmente.</li>
+          <li><strong>Rolês:</strong> Encontros automotivos e viagens de descanso.</li>
+        </ul>
+        <div class="status-badge">Foco: Cuidado & Desconexão</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Hobby -->
+  <div id="modal-hobby" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-hobby')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-hobby')">&times;</span>
+      <div class="modal-header">
+        <span>🎮</span>
+        <h2>Rotina: Hobby</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Tempo Aberto & Paixões</h3>
+        <ul>
+          <li><strong>Jogos / Conteúdo:</strong> 1 a 2 horas para espaçar a mente.</li>
+          <li><strong>Projetos Pessoais:</strong> Testar novas ideias e edições.</li>
+          <li><strong>Meta:</strong> Manter o equilíbrio sem comprometer o sono.</li>
+        </ul>
+        <div class="status-badge">Foco: Criatividade & Relaxamento</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Saúde -->
+  <div id="modal-saude" class="modal-overlay" onclick="closeModalOnOuter(event, 'modal-saude')">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal-saude')">&times;</span>
+      <div class="modal-header">
+        <span>💪</span>
+        <h2>Rotina: Saúde</h2>
+      </div>
+      <div class="modal-body">
+        <h3>Hábitos Diários</h3>
+        <ul>
+          <li><strong>Exercícios:</strong> Treino/Mobilidade 4x por semana.</li>
+          <li><strong>Hidratação:</strong> Mínimo 2.5L de água por dia.</li>
+          <li><strong>Sono:</strong> 7 a 8 horas de descanso de qualidade.</li>
+        </ul>
+        <div class="status-badge">Foco: Energia & Longevidade</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT EM BAZO PARA O CANVAS 3D E MODAIS -->
+  <script>
+    // -------------------------------------------------------------
+    // FUNÇÕES DO MODAL
+    // -------------------------------------------------------------
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('active');
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    function closeModalOnOuter(event, id) {
+      if (event.target.classList.contains('modal-overlay')) {
+        closeModal(id);
+      }
+    }
+
+    // Fechar modal ao apertar a tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      }
+    });
+
+    // -------------------------------------------------------------
+    // CENA 3D THREE.JS (OBJETOS VOANDO AO FUNDO)
+    // -------------------------------------------------------------
+    const canvas = document.getElementById('bg-canvas');
+    const scene = new THREE.Scene();
+    
+    // Câmera
+    const camera = new THREE.PerspectiveCamera(
+      75, 
+      window.innerWidth / window.innerHeight, 
+      0.1, 
+      1000
+    );
+    camera.position.z = 30;
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Luzes
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const pointLight1 = new THREE.PointLight(0x0055ff, 1.5, 100); // Azul
+    pointLight1.position.set(20, 20, 20);
+    scene.add(pointLight1);
+
+    const pointLight2 = new THREE.PointLight(0x00ff88, 1.5, 100); // Verde Água
+    pointLight2.position.set(-20, -20, 20);
+    scene.add(pointLight2);
+
+    // Formas Geométricas 3D
+    const geometries = [
+      new THREE.IcosahedronGeometry(1.5, 0),
+      new THREE.TorusGeometry(1.2, 0.4, 16, 100),
+      new THREE.OctahedronGeometry(1.6, 0),
+      new THREE.TetrahedronGeometry(1.8, 0)
+    ];
+
+    // Materiais usando a paleta: Azul (#0055ff), Verde (#00ff44), Verde Água (#00f2fe)
+    const colors = [0x0055ff, 0x00ff66, 0x00f2fe, 0x00a8ff];
+    const materials = colors.map(color => new THREE.MeshStandardMaterial({
+      color: color,
+      roughness: 0.2,
+      metalness: 0.8,
+      wireframe: false
+    }));
+
+    // Criar vários objetos flutuantes
+    const objects = [];
+    const numObjects = 35;
+
+    for (let i = 0; i < numObjects; i++) {
+      const geom = geometries[Math.floor(Math.random() * geometries.length)];
+      const mat = materials[Math.floor(Math.random() * materials.length)];
+      const mesh = new THREE.Mesh(geom, mat);
+
+      // Posições aleatórias no espaço
+      mesh.position.x = (Math.random() - 0.5) * 60;
+      mesh.position.y = (Math.random() - 0.5) * 60;
+      mesh.position.z = (Math.random() - 0.5) * 40 - 10;
+
+      // Escalas aleatórias
+      const scale = Math.random() * 0.8 + 0.5;
+      mesh.scale.set(scale, scale, scale);
+
+      // Velocidades individuais de rotação e flutuação
+      mesh.userData = {
+        rotX: (Math.random() - 0.5) * 0.02,
+        rotY: (Math.random() - 0.5) * 0.02,
+        speedY: (Math.random() * 0.03) + 0.01,
+        initialY: mesh.position.y
+      };
+
+      scene.add(mesh);
+      objects.push(mesh);
+    }
+
+    // Loop de Animação
+    function animate() {
+      requestAnimationFrame(animate);
+
+      objects.forEach(obj => {
+        // Rotação contínua 3D
+        obj.rotation.x += obj.userData.rotX;
+        obj.rotation.y += obj.userData.rotY;
+
+        // Movimento subindo (voando)
+        obj.position.y += obj.userData.speedY;
+
+        // Reposicionar se subir demais para manter o efeito contínuo
+        if (obj.position.y > 35) {
+          obj.position.y = -35;
+          obj.position.x = (Math.random() - 0.5) * 60;
+        }
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Redimensionamento de Tela
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
