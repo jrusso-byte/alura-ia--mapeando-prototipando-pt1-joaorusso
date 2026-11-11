@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>russodrive - Organizador de Rotinas</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Fundo Tridimensional Animado -->
+    <div class="bg-3d-container">
+        <div class="shape shape-cube"></div>
+        <div class="shape shape-pyramid"></div>
+        <div class="shape shape-sphere"></div>
+        <div class="shape shape-torus"></div>
+        <div class="shape shape-prism"></div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="app-container">
+        <header class="header">
+            <h1 class="logo">russodrive</h1>
+            <p class="subtitle">Organizador de Rotinas de Trabalho & Compras de Carros</p>
+        </header>
+
+        <main class="cards-grid">
+            
+            <!-- Card 1: Trabalho -->
+            <div class="card" onclick="openModal('modal-trabalho-1')">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>Rotina Matinal de Trabalho</h3>
+                    <p>Planejamento de tarefas, revisão de e-mails e reuniões diárias de alinhamento.</p>
+                    <span class="card-tag tag-work">Trabalho</span>
+                </div>
+            </div>
+
+            <!-- Card 2: Carros -->
+            <div class="card" onclick="openModal('modal-carro-1')">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-car"></i></div>
+                    <h3>Inspeção de Veículos</h3>
+                    <p>Checklist essencial para vistoria técnica e histórico de documentação na compra de carros.</p>
+                    <span class="card-tag tag-car">Carros</span>
+                </div>
+            </div>
+
+            <!-- Card 3: Trabalho -->
+            <div class="card" onclick="openModal('modal-trabalho-2')">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Prospecção & Negociação</h3>
+                    <p>Métricas de vendas, propostas comerciais ativas e acompanhamento de clientes.</p>
+                    <span class="card-tag tag-work">Trabalho</span>
+                </div>
+            </div>
+
+            <!-- Card 4: Carros -->
+            <div class="card" onclick="openModal('modal-carro-2')">
+                <div class="card-glass">
+                    <div class="card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Fechamento de Compras</h3>
+                    <p>Análise de margem de lucro, transferência de propriedade e quitação de taxas.</p>
+                    <span class="card-tag tag-car">Carros</span>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAIS DE INFORMAÇÕES -->
+
+    <!-- Modal 1: Trabalho Matinal -->
+    <div class="modal-overlay" id="modal-trabalho-1">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-trabalho-1')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-briefcase modal-icon"></i>
+                <h2>Rotina Matinal de Trabalho</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Checklist Diário:</h4>
+                <ul>
+                    <li><i class="fa-regular fa-square-check"></i> 08:00 - Revisão dos e-mails prioritários.</li>
+                    <li><i class="fa-regular fa-square-check"></i> 08:30 - Daily Scrum / Reunião de equipe.</li>
+                    <li><i class="fa-regular fa-square-check"></i> 09:15 - Organização do Kanban de tarefas do dia.</li>
+                    <li><i class="fa-regular fa-square-check"></i> 10:30 - Foco total nas tarefas de alta prioridade.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Vistoria de Carros -->
+    <div class="modal-overlay" id="modal-carro-1">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-carro-1')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-car modal-icon"></i>
+                <h2>Checklist de Inspeção de Veículos</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Itens para Avaliação Previa:</h4>
+                <ul>
+                    <li><i class="fa-regular fa-square-check"></i> Verificação de histórico de sinistro e leilão.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Teste de compressão do motor e ruídos na suspensão.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Checagem de pintura e alinhamento de lataria.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Inspeção de pneus, freios e fluidos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Prospecção de Vendas -->
+    <div class="modal-overlay" id="modal-trabalho-2">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-trabalho-2')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-chart-line modal-icon"></i>
+                <h2>Prospecção & Negociação</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Etapas do Funil de Negócios:</h4>
+                <ul>
+                    <li><i class="fa-regular fa-square-check"></i> Mapeamento de novos leads e contatos quentes.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Envio de propostas de parceria/venda.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Follow-up diário com clientes em negociação.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Fechamento de contratos e emissão de notas.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Fechamento de Carros -->
+    <div class="modal-overlay" id="modal-carro-2">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal-carro-2')">&times;</button>
+            <div class="modal-header">
+                <i class="fa-solid fa-handshake modal-icon"></i>
+                <h2>Processo de Compra do Veículo</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Passos para Conclusão da Compra:</h4>
+                <ul>
+                    <li><i class="fa-regular fa-square-check"></i> Validação da documentação (CRLV / ATPV-e).</li>
+                    <li><i class="fa-regular fa-square-check"></i> Cálculo da margem de revenda/custo de reparos.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Pagamento via PIX/Transferência segura.</li>
+                    <li><i class="fa-regular fa-square-check"></i> Agendamento de vistoria de transferência no DETRAN.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Integrado -->
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Fechar o modal ao clicar fora da caixa do modal
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
